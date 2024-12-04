@@ -76,5 +76,11 @@
       "address": "0x0227628f3F023bb0B980b67D528571c95c6DaC1c",
       "startBlock": 3518270
     }
+  },
+  "ink-sepolia": {
+    "Factory": {
+      "address": "0xcfEA11557Bc9cB71bc6916e09fC8493D668b8d53",
+      "startBlock": 4225927
+    }
   }
 }

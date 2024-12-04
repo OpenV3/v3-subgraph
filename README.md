@@ -26,3 +26,34 @@ yarn run deploy:alchemy --
   --deploy-key <DEPLOYMENT_KEY>
   --network <NETWORK_NAME>
 ```
+
+## GoldSky Graph Deployment
+
+```shell
+# since goldsky does not work with the networks.json file like the graph cli we can do the following
+
+# as before make sure deps are installed
+yarn install
+
+# to overwrite the subgraph.yaml with the network config
+npx mustache config/<network-name>.json subgraph.template.yaml > subgraph.yaml
+
+# you can then normally codgen and build
+yarn codegen
+yarn buildonly
+
+# specific to GoldSky:
+
+# deploy subgraph to GoldSky
+goldsky subgraph deploy <subgraph-name>/<version> --path .
+## for example:
+goldsky subgraph deploy open-v3/1.0.0 --path .
+
+## create a tag for a subgraph
+goldsky subgraph tag create <subgraph-name>/<version> --tag <tag-string>
+## for example:
+goldsky subgraph tag create open-v3/1.0.0 --tag prod
+
+```
+
+
